@@ -3,39 +3,161 @@
 CPU
 ^^^
 
-Metrics have a ``cpu_number`` field that contains the CPU number to which the
-metric applies.
-
 * ``cpu_idle``, the percentage of CPU time spent in the idle task.
+  
+  Dimensions:
+
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_interrupt``, the percentage of CPU time spent servicing interrupts.
+  
+  Dimensions:
+
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_nice``, the percentage of CPU time spent in user mode with low
   priority (nice).
+  
+  Dimensions:
+  
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_softirq``, the percentage of CPU time spent servicing soft interrupts.
+  
+  Dimensions:
+  
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_steal``, the percentage of CPU time spent in other operating systems.
+  
+  Dimensions:
+  
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_system``, the percentage of CPU time spent in system mode.
+  
+  Dimensions:
+  
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_user``, the percentage of CPU time spent in user mode.
+  
+  Dimensions:
+  
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``cpu_wait``, the percentage of CPU time spent waiting for I/O operations to
   complete.
-
+  
+  Dimensions:
+  
+  - cpu_number, the CPU number to which the metric applies.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
 
 Disk
 ^^^^
 
-Metrics have a ``device`` field that contains the disk device number the metric
-applies to. For example, 'sda', 'sdb', and others.
+Metrics have a ``device`` dimension that contains the disk device
+number the metric applies to. For example, 'sda' or 'sdb'.
+
+* ``disk_io_time``, the time spent doing I/Os (ms)
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
 
 * ``disk_merged_read``, the number of read operations per second that could be
   merged with already queued operations.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_merged_write``, the number of write operations per second that could
   be merged with already queued operations.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_octets_read``, the number of octets (bytes) read per second.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_octets_write``, the number of octets (bytes) written per second.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_ops_read``, the number of read operations per second.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_ops_write``, the number of write operations per second.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_time_read``, the average time for a read operation to complete in the
   last interval.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
 * ``disk_time_write``, the average time for a write operation to complete in
   the last interval.
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
+
+* ``disk_weighted_io_time``, the measure of both I/O completion time and the backlog that may be accumulating
+  
+  Dimensions:
+
+  - device, the disk device number the metric applies to.
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
 
 File system
 ^^^^^^^^^^^
@@ -124,6 +246,7 @@ Processes
   a ``state`` field (one of 'blocked', 'paging', 'running', 'sleeping',
   'stopped' or 'zombies').
 * ``processes_fork_rate``, the number of processes forked per second.
+* ``contextswitch``, the number of context switches done by the operating system.
 
 Swap
 ^^^^
@@ -140,3 +263,15 @@ Users
 ^^^^^
 
 * ``logged_users``, the number of users currently logged in.
+
+Miscellaneous
+^^^^^^^^^^^^^
+
+* ``entropy``, the entropy on a system.
+  Entropy is used to generate random numbers,
+  which are used for encryption, authorization and similar tasks.
+
+  Dimensions:
+
+  - environment_label, the environment name the metric was collected from.
+  - hostname, the hostname the metric applies to.
