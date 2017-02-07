@@ -1,5 +1,8 @@
 .. _cluster_metrics:
 
+Cluster metrics
+^^^^^^^^^^^^^^^
+
 The cluster metrics are known as the GSE metrics.
 They are emitted by the Aggregator.
 For details about the GSE metrics, see

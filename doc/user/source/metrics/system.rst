@@ -5,68 +5,60 @@ CPU
 
 * ``cpu_idle``, the percentage of CPU time spent in the idle task.
   
-  Dimensions:
+  dimensions:
 
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_interrupt``, the percentage of CPU time spent servicing interrupts.
   
-  Dimensions:
+  dimensions:
 
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_nice``, the percentage of CPU time spent in user mode with low
   priority (nice).
   
-  Dimensions:
+  dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_softirq``, the percentage of CPU time spent servicing soft interrupts.
   
-  Dimensions:
+  dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_steal``, the percentage of CPU time spent in other operating systems.
   
-  Dimensions:
+  dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_system``, the percentage of CPU time spent in system mode.
   
-  Dimensions:
+  dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_user``, the percentage of CPU time spent in user mode.
   
-  Dimensions:
+  dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``cpu_wait``, the percentage of CPU time spent waiting for I/O operations to
   complete.
   
-  Dimensions:
+  dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 Disk
@@ -77,106 +69,168 @@ number the metric applies to. For example, 'sda' or 'sdb'.
 
 * ``disk_io_time``, the time spent doing I/Os (ms)
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_merged_read``, the number of read operations per second that could be
   merged with already queued operations.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_merged_write``, the number of write operations per second that could
   be merged with already queued operations.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_octets_read``, the number of octets (bytes) read per second.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_octets_write``, the number of octets (bytes) written per second.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_ops_read``, the number of read operations per second.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_ops_write``, the number of write operations per second.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_time_read``, the average time for a read operation to complete in the
   last interval.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_time_write``, the average time for a write operation to complete in
   the last interval.
   
-  Dimensions:
+  dimensions:
 
   - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 * ``disk_weighted_io_time``, the measure of both I/O completion time and the backlog that may be accumulating
   
-  Dimensions:
+  dimensions:
 
-  - device, the disk device number the metric applies to.
-  - environment_label, the environment name the metric was collected from.
+  - device, the disk device number the metric applies to.  
   - hostname, the hostname the metric applies to.
 
 File system
 ^^^^^^^^^^^
 
-Metrics have a ``fs`` field that contains the partition's mount point to which
-the metric applies. For example, '/', '/var/lib', and others.
+The file system metrics have a ``fs`` dimension that contains the partition's
+mount point to which the metric applies. For example, '/', '/var/lib', and others.
 
 * ``fs_inodes_free``, the number of free inodes on the file system.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+
 * ``fs_inodes_percent_free``, the percentage of free inodes on the file system.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_inodes_percent_reserved``, the percentage of reserved inodes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_inodes_percent_used``, the percentage of used inodes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_inodes_reserved``, the number of reserved inodes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_inodes_used``, the number of used inodes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_space_free``, the number of free bytes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_space_percent_free``, the percentage of free bytes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_space_percent_reserved``, the percentage of reserved bytes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_space_percent_used``, the percentage of used bytes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_space_reserved``, the number of reserved bytes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 * ``fs_space_used``, the number of used bytes.
+
+  dimensions:
+
+  - fs, the file system mount point.
+  - hostname, the hostname the metric applies to.
+  
 
 System load
 ^^^^^^^^^^^
@@ -271,7 +325,7 @@ Miscellaneous
   Entropy is used to generate random numbers,
   which are used for encryption, authorization and similar tasks.
 
-  Dimensions:
+  dimensions:
 
-  - environment_label, the environment name the metric was collected from.
+  
   - hostname, the hostname the metric applies to.

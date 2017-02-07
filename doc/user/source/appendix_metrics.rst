@@ -3,8 +3,12 @@
 List of metrics
 ---------------
 
-The following is a list of metrics that are emitted by the StackLight Collector.
-The metrics are listed by category, then by metric name.
+Here is a list of all the metrics (with their dimensions) that are collected
+by StackLight. In the current version of Stacklight there are 668 differents
+metrics. In InfluxDB, the metics are known as ``measurements`` and the dimensions
+as ``tag keys``. All the StackLight metrics are decorated with the ``environment_label``
+dimension which will not be repeated hereafter. It is a usefull dimension to
+identify in which MCP environment a metric was collected.
 
 System
 ++++++

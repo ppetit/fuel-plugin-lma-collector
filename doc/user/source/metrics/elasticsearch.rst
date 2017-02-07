@@ -4,12 +4,12 @@ Elasticsearch checks
 ^^^^^^^^^^^^^^^^^^^^
 .. _elasticsearch_checks:
 
-* ``elasticsearch_check``, check the availability of the Elasticsearch service API endpoints.
-  The value of the metric is ``1`` if the check is successful or ``0`` otherwhise.
+* ``elasticsearch_check``, check the availability status of the Elasticsearch service.
+  The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
   
   Dimensions:
 
-  - environment_label, the environment name the metric was collected from.
   - hostname, the hostname the metric applies to.
 
 Elsticsearch cluster metrics
@@ -24,15 +24,7 @@ see the `documentation <https://www.elastic.co/guide/en/elasticsearch/reference/
 * ``elasticsearch_cluster_active_primary_shards``, the number of active primary
   shards.
 
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
-
 * ``elasticsearch_cluster_active_shards``, the number of active shards.
-
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
 
 * ``elasticsearch_cluster_health``, the health status of the Elasticsearch
   cluster as reported by Elasticsearch itself where:
@@ -46,53 +38,21 @@ see the `documentation <https://www.elastic.co/guide/en/elasticsearch/reference/
   error which doesn't necessarily mean that the Elasticsearch server
   itself is critical.
 
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
-
 * ``elasticsearch_cluster_initializing_shards``, the number of initializing
   shards.
   
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
-
 * ``elasticsearch_cluster_number_of_nodes``, the number of nodes in the cluster.
-
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
 
 * ``elasticsearch_cluster_number_of_pending_tasks``, the number of pending tasks.
 
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
-
 * ``elasticsearch_cluster_relocating_shards``, the number of relocating shards.
-
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
 
 * ``elasticsearch_cluster_unassigned_shards``, the number of unassigned shards.
   
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
-
 * ``elasticsearch_documents``, the number of documents.
   
   In Elasticsearch, a document refers to the top-level,
   or root object that is serialized into JSON and stored
   in Elasticsearch under a unique ID.
   
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
-
 * ``elasticsearch_documents_deleted``, number of documents deleted.
-  
-  Dimensions:
-
-  - environment_label, the environment name the metric was collected from.
