@@ -4,27 +4,35 @@ Elasticsearch checks
 ^^^^^^^^^^^^^^^^^^^^
 .. _elasticsearch_checks:
 
-* ``elasticsearch_check``, check the availability status of the Elasticsearch service.
-  The value of the metric is ``1`` if the check is successful or ``0`` if the
+* ``elasticsearch_check``, check the availability status of the Elasticsearch service
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
   check is not successful.
   
-  Dimensions:
+  dimensions:
 
   - hostname, the hostname the metric applies to.
 
-Elsticsearch cluster metrics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _elasticsearch_cluser_metrics:
+Elasticsearch cluster metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _elasticsearch_cluster_metrics:
 
 The following list of metrics are cluster wide metrics.
 They are obtained  through querying the Elasticsearch API.
 For details about these metrics,
-see the `documentation <https://www.elastic.co/guide/en/elasticsearch/reference/1.7/cluster-health.html>`_.
+see the `Elasticsearch documentation <https://www.elastic.co/guide/en/elasticsearch/reference/1.7/cluster-health.html>`_.
 
 * ``elasticsearch_cluster_active_primary_shards``, the number of active primary
   shards.
 
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``elasticsearch_cluster_active_shards``, the number of active shards.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
 
 * ``elasticsearch_cluster_health``, the health status of the Elasticsearch
   cluster as reported by Elasticsearch itself where:
@@ -38,16 +46,40 @@ see the `documentation <https://www.elastic.co/guide/en/elasticsearch/reference/
   error which doesn't necessarily mean that the Elasticsearch server
   itself is critical.
 
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``elasticsearch_cluster_initializing_shards``, the number of initializing
   shards.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
   
 * ``elasticsearch_cluster_number_of_nodes``, the number of nodes in the cluster.
+  
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
 
 * ``elasticsearch_cluster_number_of_pending_tasks``, the number of pending tasks.
 
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``elasticsearch_cluster_relocating_shards``, the number of relocating shards.
 
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``elasticsearch_cluster_unassigned_shards``, the number of unassigned shards.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
   
 * ``elasticsearch_documents``, the number of documents.
   
@@ -55,4 +87,12 @@ see the `documentation <https://www.elastic.co/guide/en/elasticsearch/reference/
   or root object that is serialized into JSON and stored
   in Elasticsearch under a unique ID.
   
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``elasticsearch_documents_deleted``, number of documents deleted.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.

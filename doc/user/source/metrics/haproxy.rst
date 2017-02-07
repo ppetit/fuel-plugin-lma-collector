@@ -94,8 +94,8 @@ the following values:
 * sahara-api
 * swift-api
 
-Frontend metrics
-^^^^^^^^^^^^^^^^
+HAProxy Frontend metrics
+^^^^^^^^^^^^^^^^^^^^^^^^
 .. _haproxy_frontend_metric:
 
 * ``haproxy_frontend_bytes_in``, the number of bytes received by the frontend.
@@ -190,8 +190,8 @@ Frontend metrics
   - hostname, the hostname the metric applies to.
 
 
-Backend metrics
-^^^^^^^^^^^^^^^
+HAProxy Backend metrics
+^^^^^^^^^^^^^^^^^^^^^^^
 .. _haproxy_backend_metric:
 
 * ``haproxy_backend_bytes_in``, the number of bytes received by the backend
@@ -311,41 +311,51 @@ Backend metrics
   - backend, the name of the backend service endpoint.
   - hostname, the hostname the metric applies to.
 
-* ``haproxy_backend_server``, the status of the backend server where
-  ``0`` and ``1`` represent, respectively, ``DOWN`` and ``UP`` for the
-  service endpoint in the HAProxy cluster. This metric has
-  two additional dimensions. A ``state`` dimension that contains the state of
-  the backend service endpoint (either 'DOWN' or 'UP') and a ``server``
-  dimension that contains the hostname where the backend service endpoint is running.
+* ``haproxy_backend_server``, the state of the backend service endpoint
+  in the HAProxy cluster where a value:
+
+  - ``0`` represents ``down``.
+  - ``1`` represents ``up``.
 
   dimensions:
 
   - backend, the name of the backend service endpoint.
   - hostname, the hostname the metric applies to.
-  - state, the state of the backend service endpoint (either 'DOWN' or 'UP').
+  - state, the state of the backend service endpoint
   - server, the hostname where the backend service endpoint is running.
+
+  Note that this metric (and the following) has two additional dimensions.
+  
+  A ``state`` dimension that contains the state of the backend service
+    endpoint where:
+
+    - ``0`` represents ``down``.
+    - ``1`` represent ``up``.
+
+  A ``server`` dimension that contains the hostname the state of the backend
+  service endpoint applies to.
+
 
 * ``haproxy_backend_servers``, the number of backend service endpoints grouped
   by state. This metric has an additional ``state`` dimension that contains
-  the state of the backend service endpoint (either 'DOWN' or 'UP').
+  the state of the backend service endpoint (either 'down' or 'up').
 
   dimensions:
 
   - backend, the name of the backend service endpoint.
   - hostname, the hostname the metric applies to.
-  - state, the state of the backend service endpoint (either 'DOWN' or 'UP').
+  - state, the state of the backend service endpoint (either 'down' or 'up').
 
 * ``haproxy_backend_servers_percent``, the percentage of backend service
   endpoints grouped by state. This metric has an additional ``state``
   dimension that contains the state of the backend service endpoint
-  (either 'DOWN' or 'UP').
+  (either 'down' or 'up').
   
   dimensions:
 
   - backend, the name of the backend service endpoint.
   - hostname, the hostname the metric applies to.
-  - state, the state of the backend service endpoint (either 'DOWN' or 'UP').
-
+  - state, the state of the backend service endpoint (either 'down' or 'up').
 
 * ``haproxy_backend_session_current``, the number of current sessions.
 
@@ -361,9 +371,11 @@ Backend metrics
   - backend, the name of the backend service endpoint.
   - hostname, the hostname the metric applies to.
 
-* ``haproxy_backend_status``, the global status of the backend service
-  endpoint where values ``0`` and ``1`` represent, respectively,
-  ``DOWN`` (all backend endpoints are down) and ``UP`` (at least one back end is up).
+* ``haproxy_backend_status``, the cluster state of the backend service
+  endpoint where value:
+  
+  - ``0`` represents ``down``
+  - ``1`` represents ``up``.
 
   dimensions:
 

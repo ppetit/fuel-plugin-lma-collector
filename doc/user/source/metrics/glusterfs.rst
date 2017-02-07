@@ -3,7 +3,7 @@
 GlusterFS checks
 ^^^^^^^^^^^^^^^^^^^^
 
-* ``glusterfs_check``, check the availability of the GlusterFS server API endpoint.
+* ``glusterfs_check``, check the availability of the GlusterFS service on a node.
   The value of the metric is ``1`` if the check is successful or ``0`` if not successful.
   
   dimensions:
@@ -51,12 +51,10 @@ the metric applies to.
   - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
   - volume, the name of the GlusterFS volume.
 
-* ``glusterfs_peer_state``, the GlusterFS peer state.
+* ``glusterfs_peer_state``, the GlusterFS peer state where a value:
 
-  where:
-
-  - value ``0`` represents ``down``.
-  - value ``1`` represents ``up``.
+  - ``0`` represents ``down``.
+  - ``1`` represents ``up``.
   
   dimensions:
 
@@ -68,12 +66,10 @@ the metric applies to.
   dimensions:
 
   - hostname, the hostname the metric applies to.
-  - state, the state of the GlusterFS peer.
+  - state, the state of the GlusterFS peer where a value:
 
-    where:
-
-    - state ``0`` represents ``down``.
-    - state ``1`` represents ``up``.
+    - ``0`` represents ``down``.
+    - ``1`` represents ``up``.
 
 * ``glusterfs_peers_percent``, the percent of GlusterFS peers by state.
   
