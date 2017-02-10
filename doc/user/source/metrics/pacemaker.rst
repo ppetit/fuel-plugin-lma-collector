@@ -65,3 +65,11 @@ The following metrics have ``resource`` and ``status`` fields.
 
 .. [#f2] this metric is only emitted from the node that is the Designated
    Controller (DC) of the Pacemaker cluster.
+
+Pacemaker checks
+^^^^^^^^^^^^^^^^
+.. _pacemaker_checks:
+
+* ``pacemaker_check``, check the availability status of the ``pacemaker`` service
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.

@@ -1,4 +1,6 @@
-.. _Apache_metrics:
+Apache metrics
+^^^^^^^^^^^^^^
+.. _apache_metrics:
 
 * ``apache_bytes``, the number of bytes per second transmitted by the server.
 * ``apache_connections``, the current number of active connections.
@@ -15,3 +17,15 @@
 * ``apache_workers_sending``, the number of workers in sending state.
 * ``apache_workers_starting``, the number of workers in starting state.
 * ``apache_workers_waiting``, the number of workers in waiting state.
+
+Apache checks
+^^^^^^^^^^^^^
+.. _apache_checks:
+
+* ``apache_check``, check the availability status of the Apache service or process
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+  
+  dimensions:
+
+  - hostname, the hostname the metric applies to.

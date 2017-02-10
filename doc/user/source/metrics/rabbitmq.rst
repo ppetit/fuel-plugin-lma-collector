@@ -1,3 +1,5 @@
+RabbitMQ metrics
+----------------
 .. _RabbitMQ_metrics:
 
 Cluster
@@ -23,3 +25,11 @@ Cluster
   producers are blocked.
 * ``rabbitmq_remaining_memory``, the difference between
   ``rabbitmq_vm_memory_limit`` and ``rabbitmq_used_memory``.
+
+RabbitMQ checks
+^^^^^^^^^^^^^^^
+.. _rabbitmq_checks:
+
+* ``rabbitmq_check``, check the availability status of the ``rabbitmq`` service
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.

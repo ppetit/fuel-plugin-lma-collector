@@ -242,9 +242,15 @@ API response times
 ``<service>`` is one of 'cinder', 'glance', 'heat' 'keystone', 'neutron' or
 'nova'.
 
-Logs
-^^^^
+Log metrics
+^^^^^^^^^^^
 
-* ``log_messages``, the number of log messages per second for the given
-  service and severity level. The metric contains ``service`` and ``level``
-  (one of 'debug', 'info', and others) fields.
+* ``log_messages``, the number of log messages per second for a given
+  service and severity level.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+  - service, the name of the OpenStack service like 'cinder', 'nova', 'neutron'
+    the metric applies to.
+  - level, the syslog severity level (one of 'debug', 'info', 'warning', ...)

@@ -2,22 +2,6 @@ InfluxDB metrics
 ----------------
 .. _influxdb_metrics:
 
-InfluxDB checks
-^^^^^^^^^^^^^^^
-.. _influxdb_checks:
-
-* ``influxdb_check``, check the availability status of the Influxdb service.
-  The value of the metric is ``1`` if the check is successful or ``0`` if the
-  check is not successful.
-
-  dimensions:
-  
-  - hostname, the hostname the metric applies to.
-
-The following metrics are generated using the output of the :command:``show stats``
-command. The value of these metrics are reset to zero when InfluxDB is restarted.
-
-
 InfluxDB cluster metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. _influxdb_cluster_metrics:
@@ -213,3 +197,18 @@ InfluxDB Runtime metrics
   dimensions:
 
   - hostname, the hostname the metric applies to.
+
+InfluxDB checks
+^^^^^^^^^^^^^^^
+.. _influxdb_checks:
+
+* ``influxdb_check``, check the availability status of the Influxdb service.
+  The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+
+  dimensions:
+  
+  - hostname, the hostname the metric applies to.
+
+The following metrics are generated using the output of the :command:``show stats``
+command. The value of these metrics are reset to zero when InfluxDB is restarted.

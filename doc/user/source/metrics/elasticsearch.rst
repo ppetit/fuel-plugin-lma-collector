@@ -1,20 +1,6 @@
+Elasticsearch metrics
+^^^^^^^^^^^^^^^^^^^^^
 .. _elasticsearch_metrics:
-
-Elasticsearch checks
-^^^^^^^^^^^^^^^^^^^^
-.. _elasticsearch_checks:
-
-* ``elasticsearch_check``, check the availability status of the Elasticsearch service
-  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
-  check is not successful.
-  
-  dimensions:
-
-  - hostname, the hostname the metric applies to.
-
-Elasticsearch cluster metrics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _elasticsearch_cluster_metrics:
 
 The following list of metrics are cluster wide metrics.
 They are obtained  through querying the Elasticsearch API.
@@ -93,6 +79,18 @@ see the `Elasticsearch documentation <https://www.elastic.co/guide/en/elasticsea
 
 * ``elasticsearch_documents_deleted``, number of documents deleted.
 
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
+Elasticsearch checks
+^^^^^^^^^^^^^^^^^^^^
+.. _elasticsearch_checks:
+
+* ``elasticsearch_check``, check the availability status of the Elasticsearch service
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+  
   dimensions:
 
   - hostname, the hostname the metric applies to.

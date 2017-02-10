@@ -1,10 +1,12 @@
+System metrics
+--------------
 .. _system_metrics:
 
-Bellow is a collection of metrics collected by StackLight for the Linux
-operating system.
+A collection of Linux operating system metrics.
 
 CPU metrics
 ^^^^^^^^^^^
+.. _cpu_metrics:
 
 * ``cpu_idle``, the percentage of CPU time spent in the idle task.
   
@@ -66,6 +68,7 @@ CPU metrics
 
 Disk metrics
 ^^^^^^^^^^^^
+.. _disk_metrics:
 
 Metrics have a ``device`` dimension that contains the disk device
 name the metric applies to. For example, 'sda', 'vda', and so forth.
@@ -153,6 +156,8 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
 
 File system metrics
 ^^^^^^^^^^^^^^^^^^^
+.. _file_system_metrics:
+
 
 The file system metrics have a ``fs`` dimension that contains the partition's
 mount point to which the metric applies. For example, '/', '/var/lib', and others.
@@ -244,21 +249,71 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
 System load metrics
 ^^^^^^^^^^^^^^^^^^^
+.. _system_load_metrics:
+
 
 * ``load_longterm``, the system load average over the last 15 minutes.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``load_midterm``, the system load average over the last 5 minutes.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``load_shortterm``, the system load average over the last minute.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
 
 Memory metrics
 ^^^^^^^^^^^^^^
+.. _memory_metrics:
 
 * ``memory_buffered``, the amount of buffered memory in bytes.
+  
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``memory_cached``, the amount of cached memory in bytes.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+  
 * ``memory_free``, the amount of free memory in bytes.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+  
 * ``memory_used``, the amount of used memory in bytes.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
+* ``memory_slab_recl``, the amount of SLAB memory reclaimable.
+
+  Dimensions:
+
+  - hostname, the hostname the metric applies to.
+
+memory_slab_unrecl, , the amount of SLAB memory not reclaimable.
+
+  Dimensions:
+
+  - hostname, the hostname the metric applies to.  
 
 Network metrics
 ^^^^^^^^^^^^^^^
+.. _network_metrics:
+
 
 Metrics have an ``interface`` dimension that contains the interface name the
 metric applies to. For example, 'eth0', 'eth1', and so forth.
@@ -425,37 +480,86 @@ metric applies to. For example, 'eth0', 'eth1', and so forth.
 
 Process metrics
 ^^^^^^^^^^^^^^^
+.. _process_metrics:
 
-* ``processes_count``, the number of processes in a given state. The metric has
-  a ``state`` field (one of 'blocked', 'paging', 'running', 'sleeping',
-  'stopped' or 'zombies').
+* ``processes_count``, the number of processes in a given state.
+
+  dimensions:
+
+  - state, the state of the process (one of 'blocked', 'paging', 'running',
+    'sleeping', 'stopped' or 'zombies').
+  - hostname, the hostname the metric applies to.
+
 * ``processes_fork_rate``, the number of processes forked per second.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``contextswitch``, the number of context switches done by the operating system.
 
-Swap
-^^^^
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
+Swap metrics
+^^^^^^^^^^^^
+.. _swap_metrics:
 
 * ``swap_cached``, the amount of cached memory (in bytes) that is in the swap.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``swap_free``, the amount of free memory (in bytes) that is in the swap.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``swap_io_in``, the number of swap bytes written per second.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``swap_io_out``, the number of swap bytes read per second.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``swap_used``, the amount of used memory (in bytes) that is in the swap.
+
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 * ``swap_percent_used``, the amount of used memory (in percentages) that is in
   the swap.
+  
+  dimensions:
 
-Users
-^^^^^
+  - hostname, the hostname the metric applies to.
+
+Users metrics
+^^^^^^^^^^^^^
+.. _user_metrics:
 
 * ``logged_users``, the number of users currently logged in.
 
+  dimensions:
+
+  - hostname, the hostname the metric applies to.
+
 Miscellaneous
 ^^^^^^^^^^^^^
+.. _misc_metrics:
 
-* ``entropy``, the entropy on a system.
-  Entropy is used to generate random numbers,
+* ``entropy``, the entropy on a system. Entropy is used to generate random numbers,
   which are used for encryption, authorization and similar tasks.
 
   dimensions:
 
-  
   - hostname, the hostname the metric applies to.

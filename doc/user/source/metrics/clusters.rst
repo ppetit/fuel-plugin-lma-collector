@@ -14,12 +14,12 @@ TODO: Fix the the reference above
   cluster (i.e. Nova scheduler cluster), a node cluster (i.e. controller cluster,
   or a top-level cluster (i.e Nova control plane).
 
-  Dimensions:
+  dimensions:
 
-  - cluster_name: if ``cluster_status`` is about a top-level cluster,
-    then ``cluster_name`` contains the name of the cluster.
-  - environment_label: the environment name the metric was collected from.
-  - member: contains the name of the cluster ``cluster_status`` applies to.
+  - cluster_name, the name of the cluster if ``cluster_status``
+    is for a ``top-level`` cluster,
+  - member, contains always the name of the cluster irrespective of the
+    type of cluster.
   - nagios_host: identifies the virtual hostname where ``cluster_status``
     is displayed in the Nagios UI.
   - service: if ``cluster_status`` is about a service cluster,

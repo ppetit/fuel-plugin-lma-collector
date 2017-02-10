@@ -1,20 +1,7 @@
+HAProxy  metrics
+----------------
 .. _haproxy_metrics:
 
-HAProxy checks
-^^^^^^^^^^^^^^
-.. _haproxy_checks:
-
-* ``haproxy_check``, check the availability status of the HAProxy service.
-  The value of the metric is ``1`` if the check is successful or ``0`` if the
-  check is not successful.
-
-  dimensions:
-  
-  - hostname, the hostname the metric applies to.
-
-HAProxy service metrics
-^^^^^^^^^^^^^^^^^^^^^^^
-.. _haproxy_service_metrics:
 
 * ``haproxy_connections``, the number of current connections.
 
@@ -94,8 +81,8 @@ the following values:
 * sahara-api
 * swift-api
 
-HAProxy Frontend metrics
-^^^^^^^^^^^^^^^^^^^^^^^^
+Frontend metrics
+^^^^^^^^^^^^^^^^
 .. _haproxy_frontend_metric:
 
 * ``haproxy_frontend_bytes_in``, the number of bytes received by the frontend.
@@ -190,8 +177,8 @@ HAProxy Frontend metrics
   - hostname, the hostname the metric applies to.
 
 
-HAProxy Backend metrics
-^^^^^^^^^^^^^^^^^^^^^^^
+Backend metrics
+^^^^^^^^^^^^^^^
 .. _haproxy_backend_metric:
 
 * ``haproxy_backend_bytes_in``, the number of bytes received by the backend
@@ -380,4 +367,16 @@ HAProxy Backend metrics
   dimensions:
 
   - backend, the name of the backend service endpoint.
+  - hostname, the hostname the metric applies to.
+
+HAProxy checks
+^^^^^^^^^^^^^^
+.. _haproxy_checks:
+
+* ``haproxy_check``, check the availability status of the HAProxy service.
+  The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+
+  dimensions:
+  
   - hostname, the hostname the metric applies to.

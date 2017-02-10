@@ -1,7 +1,9 @@
+GlusterFS metrics
 .. _glusterfs_metrics:
 
 GlusterFS checks
 ^^^^^^^^^^^^^^^^^^^^
+.. _glusterfs_checks:
 
 * ``glusterfs_check``, check the availability of the GlusterFS service on a node.
   The value of the metric is ``1`` if the check is successful or ``0`` if not successful.
