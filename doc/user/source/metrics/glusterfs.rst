@@ -1,6 +1,8 @@
 GlusterFS metrics
 .. _glusterfs_metrics:
 
+A collection of GlusterFS related metrics.
+
 GlusterFS checks
 ^^^^^^^^^^^^^^^^^^^^
 .. _glusterfs_checks:

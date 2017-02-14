@@ -126,8 +126,8 @@ Cluster metrics
 The following metrics are collected with statement 'SHOW STATUS'. For details,
 see the `Percona documentation <http://www.percona.com/doc/percona-xtradb-cluster/5.6/wsrep-status-index.html>`_.
 
-* ``mysql_cluster_connected``, Has for value ``1`` when the node is connected
-  to the cluster, if not, then ``0``.
+* ``mysql_cluster_connected``,  the value of the metric is ``1`` if the node
+  is connected to the MySQL cluster or ``0`` if it is not connected.
 
   dimensions:
 

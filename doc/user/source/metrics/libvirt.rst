@@ -2,6 +2,7 @@ Libvirt metrics
 ---------------
 .. _libvirt-metrics:
 
+A colelction of libvirt related metrics.
 All libvirt metrics contains an ``instance_id`` dimension which contains the
 UUID of the Nova instance.
 

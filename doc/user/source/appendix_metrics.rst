@@ -28,6 +28,11 @@ Apache metrics
 
 .. include:: metrics/apache.rst
 
+Nginx metrics
++++++++++++++
+
+../include:: metrics/nginx.rst
+
 MySQL metrics
 +++++++++++++
 

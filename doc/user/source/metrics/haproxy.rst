@@ -1,5 +1,8 @@
 HAProxy  metrics
 ----------------
+
+A collection of HAProxy related metrics.
+
 .. _haproxy_metrics:
 
 

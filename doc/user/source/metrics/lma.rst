@@ -2,7 +2,7 @@ LMA metrics
 -----------
 .. _lma_metrics:
 
-A collection of StackLight LMA toolchain (self-monitoring) metrics. 
+A collection of StackLight related (self-monitoring) metrics. 
 
 LMA system metrics
 ^^^^^^^^^^^^^^^^^^
