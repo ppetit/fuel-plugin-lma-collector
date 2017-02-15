@@ -1,7 +1,12 @@
-.. _Ceph_metrics:
+Ceph metrics
+^^^^^^^^^^^^
+.. _ceph_metrics:
 
+A collection of Cep metrics.
 
-All Ceph metrics have a ``cluster`` field containing the name of the Ceph
+.. Note: Ceph metrics are not available in StackLight 1.0 for MCP 0.5
+
+All Ceph metrics have a ``cluster`` dimension containing the name of the Ceph
 cluster (*ceph* by default).
 
 For details, see
@@ -28,7 +33,7 @@ Pools
 * ``ceph_pool_total_number``, the total number of pools.
 * ``ceph_pool_total_used_bytes``, the total used size in bytes by all pools.
 
-The following metrics have a ``pool`` field that contains the name of the
+The following metrics have a ``pool`` dimension that contains the name of the
 Ceph pool.
 
 * ``ceph_pool_bytes_used``, the amount of data in bytes used by the pool.
@@ -50,7 +55,7 @@ Placement Groups
 * ``ceph_pg_data_bytes``, the stored data size in bytes before it is
   replicated, cloned or snapshotted.
 * ``ceph_pg_state``, the number of placement groups in a given state. The
-  metric contains a ``state`` field whose ``<state>`` value is a combination
+  metric contains a ``state`` dimension whose ``<state>`` value is a combination
   separated by ``+`` of 2 or more states of this list: ``creating``,
   ``active``, ``clean``, ``down``, ``replay``, ``splitting``, ``scrubbing``,
   ``degraded``, ``inconsistent``, ``peering``, ``repair``, ``recovering``,
@@ -66,7 +71,7 @@ OSD Daemons
 * ``ceph_osd_out``, the number of OSD daemons OUT.
 * ``ceph_osd_up``, the number of OSD daemons UP.
 
-The following metrics have an ``osd`` field that contains the OSD identifier:
+The following metrics have an ``osd`` dimension that contains the OSD identifier:
 
 * ``ceph_osd_apply_latency``, apply latency in ms for the given OSD.
 * ``ceph_osd_commit_latency``, commit latency in ms for the given OSD.
@@ -80,7 +85,7 @@ All the following metrics are retrieved per OSD daemon from the corresponding
 ``/var/run/ceph/ceph-osd.<ID>.asok`` socket by issuing the :command:`perf dump`
 command.
 
-All metrics have an ``osd`` field that contains the OSD identifier.
+All metrics have an ``osd`` dimension that contains the OSD identifier.
 
 .. note:: These metrics are not collected when a node has both the ceph-osd
    and controller roles.
@@ -126,3 +131,23 @@ For details, see `OSD performance counters <http://ceph.com/docs/firefly/dev/per
 * ``ceph_perf_osd_op_w_rlat``, the average latency in ms for write operations
   with readable/applied.
 * ``ceph_perf_osd_recovery_ops``, the number of recovery operations in progress.
+
+Ceph checks
+^^^^^^^^^^^^^
+.. _ceph_checks:
+
+* ``ceph_mon_check``, check the availability status of the ``cephmon`` service
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+  
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+* ``ceph_osd_check``, check the availability status of the Ceph OSD service
+  on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+  
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.

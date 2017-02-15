@@ -1,25 +1,58 @@
-.. _cluster_metrics:
+AFD and GSE metrics
+^^^^^^^^^^^^^^^^^^^
+.. _afd_gse_metrics:
 
-The cluster metrics are emitted by the GSE plugins. For details, see
-:ref:`Configuring alarms <configure_alarms>`.
+The AFD and GSE metrics are health status metrics created by the
+operational insight pipeline of StackLight.
 
-* ``cluster_node_status``, the status of the node cluster. The metric contains
-  a ``cluster_name`` field that identifies the node cluster.
+The GSE (Global Status Evaluation) metrics are health status metrics that apply to the clusters.
+The AFD (Anomaly and Fault Detection) metrics are derived from the execution of alarms. 
 
-* ``cluster_service_status``, the status of the service cluster. The metric
-  contains a ``cluster_name`` field that identifies the service cluster.
+For details about the GSE and AFD metrics, see :ref:`Configuring alarms <configure_alarms>`.
 
-* ``cluster_status``, the status of the global cluster. The metric contains a
-  ``cluster_name`` field that identifies the global cluster.
+.. todo: Fix the the <configure_alarms> reference.
 
-The supported values for these metrics are:
+* ``cluster_status``, the health status of a cluster. A cluster can be a service
+  cluster (i.e. Nova scheduler cluster), a node cluster (i.e. controller cluster,
+  or a top-level cluster (i.e Nova control plane).
 
-* ``0`` for the *Okay* status.
+  The supported values for the ``status`` metric is one of:
 
-* ``1`` for the *Warning* status.
+  - ``0`` for the *Okay* status.
+  - ``1`` for the *Warning* status.
+  - ``2`` for the *Unknown* status.
+  - ``3`` for the *Critical* status.
+  - ``4`` for the *Down* status.
 
-* ``2`` for the *Unknown* status.
+  Dimensions:
 
-* ``3`` for the *Critical* status.
+  - cluster_name, the name of the cluster if ``cluster_status``
+    is for a ``top-level`` cluster.
+  - member, contains always the name of the cluster irrespective of the
+    type of cluster.
+  - nagios_host: identifies the virtual hostname where ``cluster_status``
+    is displayed in the Nagios UI.
+  - service: if ``cluster_status`` is about a service cluster,
+    then ``service`` contains the name of the cluster.
 
-* ``4`` for the *Down* status.
+|
+
+* ``status``, the health status of a monitored entity derived from the
+  execution of an alarm.
+
+  The supported values for the ``status`` metric is one of:
+
+  - ``0`` for the *Okay* status.
+  - ``1`` for the *Warning* status.
+  - ``2`` for the *Unknown* status.
+  - ``3`` for the *Critical* status.
+  - ``4`` for the *Down* status.
+
+  Dimensions:
+
+  - ``backend``, the name of the HAProxy backend the alarm applies to (optional).
+  - ``hostname``, the hostname the alarm applies to.
+  - ``member``, the name of the alarm.
+  - ``node_role``, the role of the node the alarm applies to (optional).
+  - ``process``, the name of the process the alarm applies to (optional).
+  - ``service``, the name of the service the alarm applies to (optional).

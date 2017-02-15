@@ -1,250 +1,603 @@
+OpenStack metrics
+^^^^^^^^^^^^^^^^^^^^^
 .. _openstack_metrics:
 
-Service API checks
-^^^^^^^^^^^^^^^^^^
-.. _service_api_checks:
+A collection of OpenStack metrics.
 
-* ``openstack_check_api``, the service's API status through the load balancer
-    VIP, ``1`` if it is responsive, if not, then ``0``.
-    The metric contains a ``service`` field that identifies
-    the OpenStack service being checked.
+API check metrics
+^^^^^^^^^^^^^^^^^
+.. _openstack_api_check_metrics:
 
-* ``openstack_check_local_api``, the service's API status checked locally. ``1``
-  if it is responsive, if not, then ``0``. The metric contains a ``service``
-  field that identifies ``<service>`` identifies the OpenStack service being
-  checked.
+* ``openstack_check_api``, the OpenStack service API status
+  checked through the load balancer VIP.
+  The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
+  
+  Dimensions:
 
-``<service>`` is one of the following values with their respective resource
-checks:
+  - ``hostname``, the hostname the metric applies to. In this case,
+    the hostname where the VIP is active.
+  - ``service`` the OpenStack service API is one of:
 
-* 'ceilometer-api': '/v2/capabilities'
-* 'cinder-api': '/'
-* 'cinder-v2-api': '/'
-* 'glance-api': '/'
-* 'heat-api': '/'
-* 'heat-cfn-api': '/'
-* 'keystone-public-api': '/'
-* 'neutron-api': '/'
-* 'nova-api': '/'
-* 'swift-api': '/healthcheck'
-* 'swift-s3-api': '/healthcheck'
+    - ``ceilometer-api``, for the API endpoint check ``/v2/capabilities``
+    - ``cinder-api``, for the API endpoint check ``/``
+    - ``cinder-v2-api``, for the API endpoint check  ``/``
+    - ``glance-api``, for the API endpoint check  ``/``
+    - ``heat-api``, for the API endpoint check  ``/``
+    - ``heat-cfn-api``, for the API endpoint check  ``/``
+    - ``keystone-public-api``, for the API endpoint check  ``/``
+    - ``neutron-api``, for the API endpoint check  ``/``
+    - ``nova-api``, for the API endpoint check ``/``
+    - ``swift-api``, for the API endpoint check ``/healthcheck``
+    - ``swift-s3-api``, for the API endpoint check ``/healthcheck``
 
-.. note:: All checks except for Ceilometer are performed without authentication.
+|
 
-Compute
-^^^^^^^
+* ``openstack_check_local_api``, the OpenStack service API status
+  checked locally to the node where the service is running.
+  The value of the metric is ``1`` if the check is successful or ``0`` if the
+  check is not successful.
 
-The following metrics are emitted per compute node:
+  .. note:: All checks except for Ceilometer are performed without authentication.
+  
+   Dimensions:
+
+  - ``hostname``, the hostname the metric applies to. In this case,
+    the hostname where the VIP is active.
+  - ``service`` the OpenStack service API is one of:
+
+    - ``ceilometer-api``, for the API endpoint check ``/v2/capabilities``
+    - ``cinder-api``, for the API endpoint check ``/``
+    - ``cinder-v2-api``, for the API endpoint check  ``/``
+    - ``glance-api``, for the API endpoint check  ``/``
+    - ``heat-api``, for the API endpoint check  ``/``
+    - ``heat-cfn-api``, for the API endpoint check  ``/``
+    - ``keystone-public-api``, for the API endpoint check  ``/``
+    - ``neutron-api``, for the API endpoint check  ``/``
+    - ``nova-api``, for the API endpoint check ``/``
+    - ``swift-api``, for the API endpoint check ``/healthcheck``
+    - ``swift-s3-api``, for the API endpoint check ``/healthcheck``
+
+API response time metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* ``openstack_<service>_http_response_times``, the HTTP response time statistics.
+  The values returned are ``min``, ``max``, ``sum``, ``count``, ``upper_90``
+  (90 percentile) over 10 second intervals where ``<service>`` is one of ``cinder``,
+  ``glance``, ``heat`` ``keystone``, ``neutron``, ``nova`` ``ceilometer``.
+
+  Dimensions:
+ 
+  - ``hostname``, the hostname the metric applies to.
+  - ``http_method``, the HTTP method used such as ``GET`` and ``POST``.
+  - ``http_status``, the HTTP request status is one of ``2xx``, ``3xx``, ``4xx``, ``5xx``.
+
+Compute metrics
+^^^^^^^^^^^^^^^
+.. _openstack_compute_metrics:
+
+The following metrics are emitted for the compute nodes:
 
 * ``openstack_nova_free_disk``, the disk space in GB available for new instances.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_free_ram``, the memory in MB available for new instances.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_free_vcpus``, the number of virtual CPU available for new
   instances.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_instance_creation_time``, the time in seconds it took to
-  launch a new instance.
-* ``openstack_nova_instance_state``, the number of instances which entered a
-  given state (the value is always ``1``).
-  The metric contains a ``state`` field.
+  create a new instance.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_running_instances``, the number of running instances.
+
+   Dimensions:
+
+   - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_running_tasks``, the number of tasks currently executed.
+
+   Dimensions:
+
+   - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_used_disk``, the disk space in GB used by the instances.
+
+   Dimensions:
+
+   - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_used_ram``, the memory in MB used by the instances.
+
+   Dimensions:
+
+   - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_nova_used_vcpus``, the number of virtual CPU used by the
   instances.
 
-If Nova aggregates are defined then the following metrics are emitted per
-aggregate. These metrics contain a ``aggregate``
-field containing the aggregate name and a ``aggregate_id`` field containing the
-ID (integer) of the aggregate.
+   Dimensions:
+
+   - ``hostname``, the hostname the metric applies to.
+
+|
+
+* ``openstack_nova_service``, the Nova service (or worker) state.
+  The value of the metric  is one of ``0`` for ``up``,
+  ``1`` for ``down`` or ``2`` for ``disabled``.
+ 
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+  - ``service``, the name of the service is one of ``compute``,
+      ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``.
+  - ``state``, the state of the service is one of ``up``,
+      ``down`` or ``disabled``.
+
+Aggregate metrics
+^^^^^^^^^^^^^^^^^
+
+The following metrics are emitted for Nova aggregates.
 
 * ``openstack_nova_aggregate_free_disk``, the total amount of disk space in GB
-  available in given aggregate for new instances.
-* ``openstack_nova_aggregate_free_ram``, the total amount of memory in MB available
-  in given aggregate for new instances.
-* ``openstack_nova_aggregate_free_vcpus``, the total number of virtual CPU
-  available in given aggregate for new instances.
-* ``openstack_nova_aggregate_running_instances``, the total number of running
-  instances in given aggregate.
-* ``openstack_nova_aggregate_running_tasks``, the total number of tasks currently
-  executed in given aggregate.
-* ``openstack_nova_aggregate_used_disk``, the total amount of disk space in GB
-  used by the instances in given aggregate.
-* ``openstack_nova_aggregate_used_ram``, the total amount of memory in MB used by
-  the instances in given aggregate.
-* ``openstack_nova_aggregate_used_vcpus``, the total number of virtual CPU used by
-  the instances in given aggregate.
+  available for new instances in the aggregate.
 
-The following metrics are retrieved from the Nova API and represent the
-aggregated values across all compute nodes.
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_free_ram``, the total amount of memory in MB
+  available for new instances in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_free_vcpus``, the total number of virtual CPU
+  available for new instances in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_running_instances``, the total number of running
+  instances in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_running_tasks``, the total number of tasks currently
+  executed in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_used_disk``, the total amount of disk space in GB
+  used by the instances in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_used_ram``, the total amount of memory in MB
+  used by the instances in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+|
+
+* ``openstack_nova_aggregate_used_vcpus``, the total number of virtual CPU
+  used by the instances in the aggregate.
+
+  Dimensions:
+
+  - ``aggregate``, the aggregate name.
+  - ``aggregate_id``, the aggregate Id.
+
+Compute statistics metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following metrics contain statistics and aggregated values for Nova.
 
 * ``openstack_nova_total_free_disk``, the total amount of disk space in GB
   available for new instances.
+
+|
+
 * ``openstack_nova_total_free_ram``, the total amount of memory in MB available
   for new instances.
+
+|
+
 * ``openstack_nova_total_free_vcpus``, the total number of virtual CPU
   available for new instances.
+
+|
+
 * ``openstack_nova_total_running_instances``, the total number of running
   instances.
+
+|
+
 * ``openstack_nova_total_running_tasks``, the total number of tasks currently
   executed.
+
+|
+
 * ``openstack_nova_total_used_disk``, the total amount of disk space in GB
   used by the instances.
+
+|
+
 * ``openstack_nova_total_used_ram``, the total amount of memory in MB used by
   the instances.
+
+|
+
 * ``openstack_nova_total_used_vcpus``, the total number of virtual CPU used by
   the instances.
 
-The following metrics are retrieved from the Nova API:
+|
 
-* ``openstack_nova_instances``, the total count of instances in a given state.
-  The metric contains a ``state`` field which is one of 'active', 'deleted',
-  'error', 'paused', 'resumed', 'rescued', 'resized', 'shelved_offloaded' or
-  'suspended'.
+* ``openstack_nova_instances``, the total number of instances by state.
+    
+  Dimensions:
 
-.. _compute-service-state-metrics:
+  - ``state``, the state of the instance is one of ``active``,
+    ``deleted``, ``error``, ``paused``, ``resumed``, ``rescued``,
+    ``resized``, ``shelved_offloaded`` or ``suspended``.
 
-* ``openstack_nova_service``, the Nova service state (either ``0`` for 'up',
-  ``1`` for 'down' or ``2`` for 'disabled').
-  The metric contains a ``service`` field (one of 'compute', 'conductor',
-  'scheduler', 'cert' or 'consoleauth') and a ``state`` field (one of 'up',
-  'down' or 'disabled').
+|
 
-* ``openstack_nova_services``, the total count of Nova
-  services by state. The metric contains a ``service`` field (one of 'compute',
-  'conductor', 'scheduler', 'cert' or 'consoleauth') and a ``state`` field (one
-  of 'up', 'down', or 'disabled').
+* ``openstack_nova_services``, the total number of Nova services (or worker)
+  by state.
+  
+  Dimensions:
+
+  - ``service``, the name of the service is one of ``compute``,
+      ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``)
+  - ``state``, the state of the service is one of ``up``,
+    ``down`` or ``disabled``.
+
+|
 
 * ``openstack_nova_services_percent``, the percentage of Nova
-  services by state. The metric contains a ``service`` field (one of 'compute',
-  'conductor', 'scheduler', 'cert' or 'consoleauth') and a ``state`` field (one
-  of 'up', 'down', or 'disabled').
+  services (or workers) by state.
+  
+  Dimensions:
 
-Identity
-^^^^^^^^
+  - ``service``, the name of the service is one of ``compute``,
+      ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``)
+  - ``state``, the state of the service is one of ``up``,
+    ``down`` or ``disabled``.
 
-The following metrics are retrieved from the Keystone API:
+Identity metrics
+^^^^^^^^^^^^^^^^
+.. _openstack_identity_metrics:
+
+The following metrics are obtained from Keystone.
 
 * ``openstack_keystone_roles``, the total number of roles.
-* ``openstack_keystone_tenants``, the number of tenants by state. The metric
-  contains a ``state`` field (either 'enabled' or 'disabled').
-* ``openstack_keystone_users``, the number of users by state. The metric
-  contains a ``state`` field (either 'enabled' or 'disabled').
 
-Volume
-^^^^^^
+|
+
+* ``openstack_keystone_tenants``, the number of tenants by state.
+
+  Dimensions:
+
+  - ``state``, the state of the tenants is one of
+    ``enabled`` or ``disabled``.
+
+|
+
+* ``openstack_keystone_users``, the number of users by state. 
+
+  Dimensions:
+
+  - ``state``, the state of the users is one of
+    ``enabled`` or ``disabled``.
+
+Volume metrics
+^^^^^^^^^^^^^^
+.. _openstack_volume_metrics:
 
 The following metrics are emitted per volume node:
 
+* ``openstack_cinder_service``, the Cinder service (or worker) state.
+  The value of the metric is one of ``0`` for ``up``, ``1`` for ``down``
+  or ``2`` for ``disabled``.
+ 
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+  - ``service``, the name of the service is one of ``volume``,
+      ``backup``, or ``scheduler``.
+  - ``state``, the state of the service is one of ``up``,
+    ``down`` or ``disabled``.
+
+|
+
 * ``openstack_cinder_volume_attachement_time``, the time in seconds it took to
   attach a volume to an instance.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``openstack_cinder_volume_creation_time``, the time in seconds it took to
   create a new volume.
 
-.. note:: When using Ceph as the back end storage for volumes, the ``hostname``
+  .. note:: When using Ceph as the backend storage for volumes, the ``hostname``
    value is always set to ``rbd``.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+Volume statistics metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following metrics are retrieved from the Cinder API:
 
-* ``openstack_cinder_snapshots``, the number of snapshots by state. The metric
-  contains a ``state`` field.
+* ``openstack_cinder_snapshots``, the total number of snapshots by state.
+
+  Dimensions:
+
+  - ``state``, the state of the snapshot is one of ``available``, ``creating``,
+    ``attaching``, ``in-use``, ``deleting``, ``backing-up``, ``restoring-backup``,
+    ``error``, ``error_deleting``, ``error_restoring``, ``error_extending``.
+
+|
+
 * ``openstack_cinder_snapshots_size``, the total size (in bytes) of snapshots
-  by state. The metric contains a ``state`` field.
-* ``openstack_cinder_volumes``, the number of volumes by state. The metric
-  contains a ``state`` field.
+  by state.
+
+  Dimensions:
+
+  - ``state``, the state of the snapshot is one of ``available``, ``creating``,
+    ``attaching``, ``in-use``, ``deleting``, ``backing-up``, ``restoring-backup``,
+    ``error``, ``error_deleting``, ``error_restoring``, ``error_extending``.
+
+|
+
+* ``openstack_cinder_volumes``, the number of volumes by state.
+
+  Dimensions:
+
+  - ``state``, the state of the snapshot is one of ``available``, ``creating``,
+    ``attaching``, ``in-use``, ``deleting``, ``backing-up``, ``restoring-backup``,
+    ``error``, ``error_deleting``, ``error_restoring``, ``error_extending``.
+
+|
+
 * ``openstack_cinder_volumes_size``, the total size (in bytes) of volumes by
-  state. The metric contains a ``state`` field.
+  state.
+  
+  Dimensions:
 
-``state`` is one of 'available', 'creating', 'attaching', 'in-use', 'deleting',
-'backing-up', 'restoring-backup', 'error', 'error_deleting', 'error_restoring',
-'error_extending'.
+  - ``state``, the state of the snapshot is one of ``available``, ``creating``,
+    ``attaching``, ``in-use``, ``deleting``, ``backing-up``, ``restoring-backup``,
+    ``error``, ``error_deleting``, ``error_restoring``, ``error_extending``.
 
-.. _volume-service-state-metrics:
+|
 
-* ``openstack_cinder_service``, the Cinder service state (either ``0`` for
-  'up', ``1`` for 'down', or ``2`` for 'disabled'). The metric contains a
-  ``service`` field (one of 'volume', 'backup', 'scheduler') and a ``state``
-  field (one of 'up', 'down' or 'disabled').
+* ``openstack_cinder_services``, the total number of Cinder services (or worker)
+  by state.
 
-* ``openstack_cinder_services``, the total count of Cinder services by state.
-  The metric contains a ``service`` field (one of 'volume', 'backup',
-  'scheduler') and a ``state`` field (one of 'up', 'down' or 'disabled').
+  Dimensions:
+
+  - ``service``, the name of the service is one of ```volume``,
+    ``backup``, or ``scheduler``.
+  - ``state``, the state of the service is one of ``up``,
+    ``down`` or ``disabled``.
+
+|
 
 * ``openstack_cinder_services_percent``, the percentage of Cinder
-  services by state. The metric contains a ``service`` field (one of 'volume',
-  'backup', 'scheduler') and a ``state`` field (one of 'up', 'down', or
-  'disabled').
+  services by state.
 
-Image
-^^^^^
+  Dimensions:
 
-The following metrics are retrieved from the Glance API:
+  - ``service``, the name of the service is one of ```volume``,
+    ``backup``, or ``scheduler``.
+  - ``state``, the state of the service is one of ``up``,
+    ``down`` or ``disabled``.
+
+Image metrics
+^^^^^^^^^^^^^
+.. _openstack_image_metrics:
+
+The following metrics are obtained from Glance:
 
 * ``openstack_glance_images``, the number of images by state and visibility.
-  The metric contains ``state`` and ``visibility`` fields.
+
+   Dimensions:
+
+   - ``state``, the state of the image is one of ``queued``,
+     ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+   - ``visibility``, the visibility of the image is one of
+     ``public``, ``private``, ``shared``, ``community``.
+
+|
+
 * ``openstack_glance_images_size``, the total size (in bytes) of images by
-  state and visibility. The metric contains ``state`` and ``visibility``
-  fields.
+  state and visibility.
+
+  Dimensions:
+
+   - ``state``, the state of the image is one of ``queued``,
+       ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+   - ``visibility``, the visibility of the image is one of
+     ``public``, ``private``, ``shared``, ``community``.
+
+|
+
 * ``openstack_glance_snapshots``, the number of snapshot images by state and
-  visibility. The metric contains ``state`` and ``visibility`` fields.
+  visibility.
+
+  Dimensions:
+
+   - ``state``, the state of the image is one of ``queued``,
+       ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+   - ``visibility``, the visibility of the image is one of
+     ``public``, ``private``, ``shared``, ``community``.
+
+|
+
 * ``openstack_glance_snapshots_size``, the total size (in bytes) of snapshots
-  by state and visibility. The metric contains ``state`` and ``visibility``
-  fields.
+  by state and visibility.
 
-``state`` is one of 'queued', 'saving', 'active', 'killed', 'deleted',
-'pending_delete'. ``visibility`` is either 'public' or 'private'.
+  Dimensions:
 
-Network
-^^^^^^^
+   - ``state``, the state of the image is one of ``queued``,
+       ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+   - ``visibility``, the visibility of the image is one of
+     ``public``, ``private``, ``shared``, ``community``.
 
-The following metrics are retrieved from the Neutron API:
+Network metrics
+^^^^^^^^^^^^^^^
+.. _openstack_network_metrics:
 
-* ``openstack_neutron_floatingips``, the total number of floating IP addresses.
-* ``openstack_neutron_networks``, the number of virtual networks by state. The
-  metric contains a ``state`` field.
-* ``openstack_neutron_ports``, the number of virtual ports by owner and state.
-  The metric contains ``owner`` and ``state`` fields.
-* ``openstack_neutron_routers``, the number of virtual routers by state. The
-  metric contains a ``state`` field.
-* ``openstack_neutron_subnets``, the number of virtual subnets.
+The following metrics are obtained from Neutron:
 
-``<state>`` is one of 'active', 'build', 'down' or 'error'.
+* ``openstack_neutron_floatingips``, the total number of floating IP addresses by state.
 
-``<owner>`` is one of 'compute', 'dhcp', 'floatingip', 'floatingip_agent_gateway', 'router_interface', 'router_gateway', 'router_ha_interface',
-'router_interface_distributed', or 'router_centralized_snat'.
+  Dimensions:
 
-.. _network-agent-state-metrics:
+   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
 
-.. note:: These metrics are not collected when the Contrail plugin is deployed.
+|
 
-* ``openstack_neutron_agent``, the Neutron agent state (either ``0`` for 'up',
-  ``1`` for 'down', or ``2`` for 'disabled').
-  The metric contains a ``service`` field (one of 'dhcp', 'l3', 'metadata', or
-  'openvswitch'), and a ``state`` field (one of 'up', 'down' or 'disabled').
+* ``openstack_neutron_networks``, the total number of virtual networks by state.
+  
+  Dimensions:
+
+   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+
+|
+
+* ``openstack_neutron_ports``, the total number of virtual ports by owner and state.
+
+  Dimensions:
+
+   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+   - ``owner``, the owner is one of ``compute``, ``dhcp``, ``floatingip``,
+     ``floatingip_agent_gateway``, ``router_interface``, ``router_gateway``,
+     ``router_ha_interface``, ``router_interface_distributed``,
+     ``router_centralized_snat``.
+
+|
+
+* ``openstack_neutron_routers``, the total number of virtual routers by state.
+
+  Dimensions:
+
+   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+
+|
+
+* ``openstack_neutron_subnets``, the total number of virtual subnets.
+
+Network agent metrics
+^^^^^^^^^^^^^^^^^^^^^
+
+.. note:: These metrics are not collected when Contrail is installed.
+
+* ``openstack_neutron_agent``, the state of the Neutron agent by service.
+  The value of the metric is ``0`` for ``down, ``1`` for ``up``, ``2`` for ``disabled``.
+
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+  - ``service``, the name of the service that is one of ``dhcp``, ``l3``,
+    ``metadata``, ``openvswitch``.
+
+|
 
 * ``openstack_neutron_agents``, the total number of Neutron agents by service
-  and state. The metric contains ``service`` (one of 'dhcp', 'l3', 'metadata'
-  or 'openvswitch') and ``state`` (one of 'up', 'down' or 'disabled') fields.
+  and state.
+  
+  Dimensions:
+
+  - ``service``, the name of the service that is one of ``dhcp``, ``l3``,
+     `metadata``, ``openvswitch``.
+  - ``state``, the state of the agents is one of ``up``, ``down`` or ``disabled``.
+
+|
 
 * ``openstack_neutron_agents_percent``, the percentage of Neutron
-  agents by state. The metric contains a ``service`` field (one of 'dhcp',
-  'l3', 'metadata' or 'openvswitch') and a ``state`` field (one of 'up',
-  'down', or 'disabled').
+  agents by state.
+  
+  Dimensions:
 
-API response times
-^^^^^^^^^^^^^^^^^^
+  - ``service``, the name of the service that is one of ``dhcp``, ``l3``,
+    ``metadata``, ``openvswitch``.
+  - ``state``, the state of the agents is one of ``up``, ``down`` or ``disabled``.
 
-* ``openstack_<service>_http_response_times``, HTTP response time statistics.
-  The statistics are ``min``, ``max``, ``sum``, ``count``, ``upper_90``
-  (90 percentile) over 10 seconds. The metric contains an ``http_method`` field,
-  for example, 'GET', 'POST', and others, and an ``http_status`` field, for
-  example, '2xx', '4xx', and others.
+Log metrics
+^^^^^^^^^^^
 
-``<service>`` is one of 'cinder', 'glance', 'heat' 'keystone', 'neutron' or
-'nova'.
+* ``log_messages``, the number of log messages per second by service and state.
 
-Logs
-^^^^
+  Dimensions:
 
-* ``log_messages``, the number of log messages per second for the given
-  service and severity level. The metric contains ``service`` and ``level``
-  (one of 'debug', 'info', and others) fields.
+  - ``hostname``, the hostname the metric applies to.
+  - ``service`` the name of the OpenStack service like ``cinder``, ``nova``, ``neutron``
+    the metric applies to.
+  - level, the syslog severity level is one of ``debug``, ``info``, ``warning``, and so forth.
