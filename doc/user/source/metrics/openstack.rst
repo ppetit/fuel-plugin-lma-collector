@@ -18,7 +18,6 @@ API check metrics
   - ``hostname``, the hostname the metric applies to. In this case,
     the hostname where the VIP is active.
   - ``service`` the OpenStack service API is one of:
-
     - ``ceilometer-api``, for the API endpoint check ``/v2/capabilities``
     - ``cinder-api``, for the API endpoint check ``/``
     - ``cinder-v2-api``, for the API endpoint check  ``/``
@@ -40,12 +39,11 @@ API check metrics
 
   .. note:: All checks except for Ceilometer are performed without authentication.
   
-   Dimensions:
+  Dimensions:
 
   - ``hostname``, the hostname the metric applies to. In this case,
     the hostname where the VIP is active.
   - ``service`` the OpenStack service API is one of:
-
     - ``ceilometer-api``, for the API endpoint check ``/v2/capabilities``
     - ``cinder-api``, for the API endpoint check ``/``
     - ``cinder-v2-api``, for the API endpoint check  ``/``
@@ -114,7 +112,7 @@ The following metrics are emitted for the compute nodes:
 
 * ``openstack_nova_running_instances``, the number of running instances.
 
-   Dimensions:
+  Dimensions:
 
    - ``hostname``, the hostname the metric applies to.
 
@@ -122,7 +120,7 @@ The following metrics are emitted for the compute nodes:
 
 * ``openstack_nova_running_tasks``, the number of tasks currently executed.
 
-   Dimensions:
+  Dimensions:
 
    - ``hostname``, the hostname the metric applies to.
 
@@ -130,7 +128,7 @@ The following metrics are emitted for the compute nodes:
 
 * ``openstack_nova_used_disk``, the disk space in GB used by the instances.
 
-   Dimensions:
+  Dimensions:
 
    - ``hostname``, the hostname the metric applies to.
 
@@ -138,7 +136,7 @@ The following metrics are emitted for the compute nodes:
 
 * ``openstack_nova_used_ram``, the memory in MB used by the instances.
 
-   Dimensions:
+  Dimensions:
 
    - ``hostname``, the hostname the metric applies to.
 
@@ -147,7 +145,7 @@ The following metrics are emitted for the compute nodes:
 * ``openstack_nova_used_vcpus``, the number of virtual CPU used by the
   instances.
 
-   Dimensions:
+  Dimensions:
 
    - ``hostname``, the hostname the metric applies to.
 
@@ -161,9 +159,9 @@ The following metrics are emitted for the compute nodes:
 
   - ``hostname``, the hostname the metric applies to.
   - ``service``, the name of the service is one of ``compute``,
-      ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``.
+    ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``.
   - ``state``, the state of the service is one of ``up``,
-      ``down`` or ``disabled``.
+    ``down`` or ``disabled``.
 
 Aggregate metrics
 ^^^^^^^^^^^^^^^^^
@@ -309,7 +307,7 @@ The following metrics contain statistics and aggregated values for Nova.
   Dimensions:
 
   - ``service``, the name of the service is one of ``compute``,
-      ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``)
+    ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``.
   - ``state``, the state of the service is one of ``up``,
     ``down`` or ``disabled``.
 
@@ -321,7 +319,7 @@ The following metrics contain statistics and aggregated values for Nova.
   Dimensions:
 
   - ``service``, the name of the service is one of ``compute``,
-      ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``)
+    ``conductor``, ``scheduler``, ``cert`` or ``consoleauth``.
   - ``state``, the state of the service is one of ``up``,
     ``down`` or ``disabled``.
 
@@ -365,7 +363,7 @@ The following metrics are emitted per volume node:
 
   - ``hostname``, the hostname the metric applies to.
   - ``service``, the name of the service is one of ``volume``,
-      ``backup``, or ``scheduler``.
+    ``backup``, or ``scheduler``.
   - ``state``, the state of the service is one of ``up``,
     ``down`` or ``disabled``.
 
@@ -467,12 +465,12 @@ The following metrics are obtained from Glance:
 
 * ``openstack_glance_images``, the number of images by state and visibility.
 
-   Dimensions:
+  Dimensions:
 
-   - ``state``, the state of the image is one of ``queued``,
-     ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
-   - ``visibility``, the visibility of the image is one of
-     ``public``, ``private``, ``shared``, ``community``.
+  - ``state``, the state of the image is one of ``queued``,
+    ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+  - ``visibility``, the visibility of the image is one of
+    ``public``, ``private``, ``shared``, ``community``.
 
 |
 
@@ -481,10 +479,10 @@ The following metrics are obtained from Glance:
 
   Dimensions:
 
-   - ``state``, the state of the image is one of ``queued``,
-       ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
-   - ``visibility``, the visibility of the image is one of
-     ``public``, ``private``, ``shared``, ``community``.
+  - ``state``, the state of the image is one of ``queued``,
+    ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+  - ``visibility``, the visibility of the image is one of
+    ``public``, ``private``, ``shared``, ``community``.
 
 |
 
@@ -493,10 +491,10 @@ The following metrics are obtained from Glance:
 
   Dimensions:
 
-   - ``state``, the state of the image is one of ``queued``,
-       ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
-   - ``visibility``, the visibility of the image is one of
-     ``public``, ``private``, ``shared``, ``community``.
+  - ``state``, the state of the image is one of ``queued``,
+    ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+  - ``visibility``, the visibility of the image is one of
+    ``public``, ``private``, ``shared``, ``community``.
 
 |
 
@@ -505,10 +503,10 @@ The following metrics are obtained from Glance:
 
   Dimensions:
 
-   - ``state``, the state of the image is one of ``queued``,
-       ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
-   - ``visibility``, the visibility of the image is one of
-     ``public``, ``private``, ``shared``, ``community``.
+  - ``state``, the state of the image is one of ``queued``,
+    ``saving``, ``active``, ``killed``, ``deleted``, ``pending_delete``.
+  - ``visibility``, the visibility of the image is one of
+    ``public``, ``private``, ``shared``, ``community``.
 
 Network metrics
 ^^^^^^^^^^^^^^^
@@ -520,7 +518,7 @@ The following metrics are obtained from Neutron:
 
   Dimensions:
 
-   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+  - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
 
 |
 
@@ -528,7 +526,7 @@ The following metrics are obtained from Neutron:
   
   Dimensions:
 
-   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+  - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
 
 |
 
@@ -536,11 +534,11 @@ The following metrics are obtained from Neutron:
 
   Dimensions:
 
-   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
-   - ``owner``, the owner is one of ``compute``, ``dhcp``, ``floatingip``,
-     ``floatingip_agent_gateway``, ``router_interface``, ``router_gateway``,
-     ``router_ha_interface``, ``router_interface_distributed``,
-     ``router_centralized_snat``.
+  - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+  - ``owner``, the owner is one of ``compute``, ``dhcp``, ``floatingip``,
+    ``floatingip_agent_gateway``, ``router_interface``, ``router_gateway``,
+    ``router_ha_interface``, ``router_interface_distributed``,
+    ``router_centralized_snat``.
 
 |
 
@@ -548,7 +546,7 @@ The following metrics are obtained from Neutron:
 
   Dimensions:
 
-   - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
+  - ``state``, the state is one of ``active``, ``build``, ``down``, ``error``.
 
 |
 
@@ -576,7 +574,7 @@ Network agent metrics
   Dimensions:
 
   - ``service``, the name of the service that is one of ``dhcp``, ``l3``,
-     `metadata``, ``openvswitch``.
+    ``metadata``, ``openvswitch``.
   - ``state``, the state of the agents is one of ``up``, ``down`` or ``disabled``.
 
 |

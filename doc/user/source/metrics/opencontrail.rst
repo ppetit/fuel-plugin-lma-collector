@@ -11,18 +11,18 @@ The following list of Cassandra metrics retrieved via JMX from the Cassandra ser
 
 For more detailed about these metrics, see the documentation.
 
-Cassandra specific:
+  Cassandra references:
 
-- https://wiki.apache.org/cassandra/Metrics
-- https://wiki.apache.org/cassandra/JmxInterface
-- https://cassandra-zone.com/performance-monitoring
-- https://www.datadoghq.com/blog/how-to-collect-cassandra-metrics
-- http://batey.info/cassandra-clientrequest-metrics.html
+  - https://wiki.apache.org/cassandra/Metrics
+  - https://wiki.apache.org/cassandra/JmxInterface
+  - https://cassandra-zone.com/performance-monitoring
+  - https://www.datadoghq.com/blog/how-to-collect-cassandra-metrics
+  - http://batey.info/cassandra-clientrequest-metrics.html
 
-Java specific:
+  Java references:
 
-- https://www.dynatrace.com/resources/ebooks/javabook/analyzing-java-memory
-- https://plumbr.eu/handbook/gc-tuning-measuring/jmx-api
+  - https://www.dynatrace.com/resources/ebooks/javabook/analyzing-java-memory
+  - https://plumbr.eu/handbook/gc-tuning-measuring/jmx-api
 
 * ``GenericJMX_cassandra_CMSOldGen``, the size of JVM pool of objects which survived
   after garbage collection from Young Generation.

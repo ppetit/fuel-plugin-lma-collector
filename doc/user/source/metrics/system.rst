@@ -9,7 +9,7 @@ Node metrics
 
 * ``uptime``, tells how long the system has been running in microseconds.
 
-Dimensions:
+  Dimensions:
 
   - ``hostname``, the hostname the metric applies to.
 
@@ -23,7 +23,7 @@ CPU metrics
   
   Dimensions:
 
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -32,7 +32,7 @@ CPU metrics
   
   Dimensions:
 
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -42,7 +42,7 @@ CPU metrics
   
   Dimensions:
   
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -51,7 +51,7 @@ CPU metrics
   
   Dimensions:
   
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -60,7 +60,7 @@ CPU metrics
   
   Dimensions:
   
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -69,7 +69,7 @@ CPU metrics
   
   Dimensions:
   
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -78,7 +78,7 @@ CPU metrics
   
   Dimensions:
   
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -88,7 +88,7 @@ CPU metrics
   
   Dimensions:
   
-  - cpu_number, the CPU number to which the metric applies.
+  - ``cpu_number``, the CPU number to which the metric applies.
   - ``hostname``, the hostname the metric applies to.
 
 Disk metrics
@@ -102,7 +102,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -112,7 +112,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -122,7 +122,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -131,7 +131,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -140,7 +140,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -149,7 +149,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -158,7 +158,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -168,7 +168,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -178,7 +178,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.
+  - ``device``, the disk device name the metric applies to.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -187,7 +187,7 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.  
+  - ``device``, the disk device name the metric applies to.  
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -196,17 +196,17 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
   
   Dimensions:
 
-  - device, the disk device name the metric applies to.  
+  - ``device``, the disk device name the metric applies to.  
   - ``hostname``, the hostname the metric applies to.
 
 |
 
  * ``pending_operations``, the number of pending operations on a disk.
   
-  Dimensions:
+   Dimensions:
 
-  - device, the disk device name the metric applies to.  
-  - ``hostname``, the hostname the metric applies to.
+   - ``device``, the disk device name the metric applies to.  
+   - ``hostname``, the hostname the metric applies to.
 
 File system metrics
 ^^^^^^^^^^^^^^^^^^^
@@ -220,7 +220,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -229,7 +229,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -238,7 +238,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -247,7 +247,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -256,7 +256,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -265,7 +265,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -274,7 +274,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
 
 |
@@ -283,7 +283,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
  
 |
@@ -292,7 +292,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
   
 |
@@ -301,7 +301,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
   
 |
@@ -310,7 +310,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
   
 |
@@ -319,7 +319,7 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
   Dimensions:
 
-  - fs, the file system mount point.
+  - ``fs``, the file system mount point.
   - ``hostname``, the hostname the metric applies to.
   
 System load metrics

@@ -203,7 +203,7 @@ Additional metrics for the ``filter`` type only:
 * ``hekad_timer_event_avg_duration``, the average time in nanoseconds for
   executing the ``timer_event`` function.
 
-    Dimensions:
+  Dimensions:
 
   - ``hostname``, the hostname the metric applies to.
   - name, the name of the Heka plugin.
@@ -215,7 +215,7 @@ Additional metrics for the ``filter`` type only:
   ``timer_event`` function calls. This resets to ``0`` when
   ``hekad`` is restarted.
   
-    Dimensions:
+  Dimensions:
 
   - ``hostname``, the hostname the metric applies to.
   - name, the name of the Heka plugin.

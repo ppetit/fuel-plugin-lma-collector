@@ -64,10 +64,8 @@ the metric applies to.
 
 |
 
-* ``glusterfs_peer_state``, the GlusterFS peer state where a value:
-
-  - ``0`` represents ``down``.
-  - ``1`` represents ``up``.
+* ``glusterfs_peer_state``, the GlusterFS peer state where ``0`` represents ``down``
+  and ``1`` represents ``up``.
   
   Dimensions:
 
