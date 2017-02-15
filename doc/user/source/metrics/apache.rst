@@ -1,5 +1,9 @@
 Apache metrics
 ^^^^^^^^^^^^^^
+A collection of Apache metrics.
+
+.. note: Those metrics are not collected by StackLight 1.0 in MCP 0.5.
+
 .. _apache_metrics:
 
 * ``apache_bytes``, the number of bytes per second transmitted by the server.
