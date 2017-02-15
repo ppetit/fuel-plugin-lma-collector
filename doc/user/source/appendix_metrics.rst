@@ -23,11 +23,6 @@ System metrics
 
 .. include:: metrics/system.rst
 
-Apache metrics
-++++++++++++++
-
-.. include:: metrics/apache.rst
-
 Nginx metrics
 +++++++++++++
 
