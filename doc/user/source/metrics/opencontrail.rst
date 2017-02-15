@@ -1,18 +1,11 @@
+Open Contrail metrics
+^^^^^^^^^^^^^^^^^^^^^
 .. _opencontrail_metrics:
 
-Contrail checks
-^^^^^^^^^^^^^^^
-
-* ``contrail_check``, check the availability of the Contrail server API endpoint.
-  The value of the metric is ``1`` if the check is successful or ``0`` if the check is not successful.
-      
-  dimensions:
-
-  - hostname, the hostname the metric applies to.  
+A collection of OpenContrail related metrics.
 
 Cassandra metrics
 ^^^^^^^^^^^^^^^^^
-.. _cassandra_metrics:
 
 The following list of Cassandra metrics retrieved via JMX from the Cassandra services.
 
@@ -34,267 +27,356 @@ Java specific:
 * ``GenericJMX_cassandra_CMSOldGen``, the size of JVM pool of objects which survived
   after garbage collection from Young Generation.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_CMSPermGen``, the size of JVM pool of objects containing
   permanent class metadata and descriptors information.
 
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_CompactionCompletedTasks``, the number of background compaction tasks completed.
 
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_CompactionPendingTasks``, the number of background compaction tasks currently in progress.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_DownEndpointCount``, the number of Cassandra nodes in ``down``
   state.
   
-  dimensions:
+  Dimensions:
  
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_GarbageCollectorCollectionCounta``, the total number of times the GC has run.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_GarbageCollectorCollectionTime``, the accumulated duration of the GC running time in ms.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_StorageDBLoad``, the size of the Casandra database in bytes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_StorageExceptionCount``, the total number of storage exceptions.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_UpEndpointCount``, the number of Cassandra nodes in Up state.
 
-	dimensions:
+	Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_clientRequest_Read_50thPercentile``, the 50 percentile client requests read latency in ms.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_clientRequest_Read_Mean``, the mean client requests read latency in ms.  
 
-  dimensions:
+  Dimensions:
 
- - hostname, the hostname the metric applies to.
+ - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_clientRequest_Read_MeanRate``, the mean client requests read throughput.
   
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_clientRequest_Write_50thPercentile``, the 50 percental client requests write latency in ms.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_clientRequest_Write_Mean``, the mean client requests write latency in ms.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_clientRequest_Write_MeanRate``, the mean client requests write throughput.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_connectedNativeClients``, the number of connected native clients.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_connectedThriftClients``, the number of connected thrift clients.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_memory``, the size of Cassandra JVM heap memory in bytes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``GenericJMX_cassandra_memory_heap_usage_max``, the maximum size of the Cassandra
   JVM heap memory in bytes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
-Contrail BGP
-^^^^^^^^^^^^
+Contrail BGP metrics
+^^^^^^^^^^^^^^^^^^^^
 .. _contrail_bgp_metrics:
 
 
 * ``contrail_bgp_session_count``, the total number of BGP sessions.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_bgp_session_down_count``, the total number of BGP sessions in ``down`` state.
      
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_bgp_session_up_count``, the total number of BGP sessions in ``up`` state.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_ifmap_elements_count`` total number of entries configured in IFMAP. 
         
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_dns_xmpp``, the total number of agent DNS subscription status
   requests.
   
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_active``, the total number of active flows.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_aged``, the total number of aged flows.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_composite_invalid_interface``, the total number of
   invalid interface errors.  
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_created``, the total number of created flows.
         
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_discard``, the total number of packets going to
   discard nexthop.
         
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_flow_action_drop``, the total number of flow
   actions drop.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_flow_queue_limit_exceeded``, the number
   of times more than 3 packets are received before flow processing is complete.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_flow_table_full``, the total number of times
   the flow table was full.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_frag_err``, the total number of times enqueueing
   to fragment queue failed.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_invalid_label``, the total number of times a label
   received in the packet was invalid.
         
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_flows_invalid_nh``, the total number of times a
   nexthop was invalid.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_lls``, the total number of HTTP requests to the link
    local address. 
         
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_vrouter_xmpp``, the total number of XMPP connection status
   requests.
       
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_xmpp_session_count``, the total number of XMPP sessions.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_xmpp_session_down_count``, the total number of XMPP sessions in
   ``down`` state.
       
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contrail_xmpp_session_up_count``, the total number of XMPP sessions in
   ``up`` state.
         
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+Contrail checks
+^^^^^^^^^^^^^^^
+  .. _contrail_checks:
+
+* ``contrail_check``, check the availability of the Contrail server API endpoint.
+  The value of the metric is ``1`` if the check is successful or ``0`` if the check is not successful.
+      
+  Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.  

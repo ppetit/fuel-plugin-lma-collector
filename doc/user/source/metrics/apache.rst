@@ -26,6 +26,6 @@ Apache checks
   on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
   check is not successful.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.

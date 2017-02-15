@@ -1,8 +1,19 @@
 System metrics
---------------
+^^^^^^^^^^^^^^
 .. _system_metrics:
 
 A collection of Linux operating system metrics.
+
+Node metrics
+^^^^^^^^^^^^
+
+* ``uptime``, tells how long the system has been running in microseconds.
+
+Dimensions:
+
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 CPU metrics
 ^^^^^^^^^^^
@@ -10,61 +21,75 @@ CPU metrics
 
 * ``cpu_idle``, the percentage of CPU time spent in the idle task.
   
-  dimensions:
+  Dimensions:
 
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_interrupt``, the percentage of CPU time spent servicing interrupts.
   
-  dimensions:
+  Dimensions:
 
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_nice``, the percentage of CPU time spent in user mode with low
   priority (nice).
   
-  dimensions:
+  Dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_softirq``, the percentage of CPU time spent servicing soft interrupts.
   
-  dimensions:
+  Dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_steal``, the percentage of CPU time spent in other operating systems.
   
-  dimensions:
+  Dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_system``, the percentage of CPU time spent in system mode.
   
-  dimensions:
+  Dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_user``, the percentage of CPU time spent in user mode.
   
-  dimensions:
+  Dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``cpu_wait``, the percentage of CPU time spent waiting for I/O operations to
   complete.
   
-  dimensions:
+  Dimensions:
   
   - cpu_number, the CPU number to which the metric applies.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Disk metrics
 ^^^^^^^^^^^^
@@ -75,84 +100,113 @@ name the metric applies to. For example, 'sda', 'vda', and so forth.
 
 * ``disk_io_time``, the time spent doing I/Os (ms)
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_merged_read``, the number of read operations per second that could be
   merged with already queued operations.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_merged_write``, the number of write operations per second that could
   be merged with already queued operations.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_octets_read``, the number of octets (bytes) read per second.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_octets_write``, the number of octets (bytes) written per second.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_ops_read``, the number of read operations per second.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_ops_write``, the number of write operations per second.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_time_read``, the average time for a read operation to complete in the
   last interval.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_time_write``, the average time for a write operation to complete in
   the last interval.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``disk_weighted_io_time``, the measure of both I/O completion time and the backlog that may be accumulating
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.  
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``hdd_errors_rate``, the hard disk drive rate of errors found in system logs.
   
-  dimensions:
+  Dimensions:
 
   - device, the disk device name the metric applies to.  
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
+ * ``pending_operations``, the number of pending operations on a disk.
+  
+  Dimensions:
+
+  - device, the disk device name the metric applies to.  
+  - ``hostname``, the hostname the metric applies to.
 
 File system metrics
 ^^^^^^^^^^^^^^^^^^^
@@ -164,89 +218,110 @@ mount point to which the metric applies. For example, '/', '/var/lib', and other
 
 * ``fs_inodes_free``, the number of free inodes on the file system.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``fs_inodes_percent_free``, the percentage of free inodes on the file system.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``fs_inodes_percent_reserved``, the percentage of reserved inodes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``fs_inodes_percent_used``, the percentage of used inodes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``fs_inodes_reserved``, the number of reserved inodes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+
+|
+ 
 * ``fs_inodes_used``, the number of used inodes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+
+|
+
 * ``fs_space_free``, the number of free bytes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+
+|
+ 
 * ``fs_space_percent_free``, the percentage of free bytes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
-  
+  - ``hostname``, the hostname the metric applies to.
+ 
+|
+ 
 * ``fs_space_percent_reserved``, the percentage of reserved bytes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
   
+|
+
 * ``fs_space_percent_used``, the percentage of used bytes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
   
+|
+
 * ``fs_space_reserved``, the number of reserved bytes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
   
+|
+
 * ``fs_space_used``, the number of used bytes.
 
-  dimensions:
+  Dimensions:
 
   - fs, the file system mount point.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
   
-
 System load metrics
 ^^^^^^^^^^^^^^^^^^^
 .. _system_load_metrics:
@@ -254,21 +329,25 @@ System load metrics
 
 * ``load_longterm``, the system load average over the last 15 minutes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``load_midterm``, the system load average over the last 5 minutes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``load_shortterm``, the system load average over the last minute.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Memory metrics
 ^^^^^^^^^^^^^^
@@ -276,39 +355,49 @@ Memory metrics
 
 * ``memory_buffered``, the amount of buffered memory in bytes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``memory_cached``, the amount of cached memory in bytes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
   
+|
+
 * ``memory_free``, the amount of free memory in bytes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
   
+|
+
 * ``memory_used``, the amount of used memory in bytes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``memory_slab_recl``, the amount of SLAB memory reclaimable.
 
   Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
-memory_slab_unrecl, , the amount of SLAB memory not reclaimable.
+|
+
+* ``memory_slab_unrecl``, the amount of SLAB memory not reclaimable.
 
   Dimensions:
 
-  - hostname, the hostname the metric applies to.  
+  - ``hostname``, the hostname the metric applies to.  
 
 Network metrics
 ^^^^^^^^^^^^^^^
@@ -320,160 +409,200 @@ metric applies to. For example, 'eth0', 'eth1', and so forth.
 
 * ``if_collisions``, the number of collisions per second per interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_dropped_rx``, the number of dropped packets per second when receiving
   from the interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_dropped_tx``, the number of dropped packets per second when transmitting
   from the interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx``, the number of errors per second detected when receiving
   from the interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx_crc``, the number of received frames with wrong CRC (cyclic
   redundancy check) per second.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx_fifo``, the number of received frames dropped per second due to
   FIFO buffer overflows.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx_frame``, the number of received frames with invalid frame
   checksum (FCS).
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx_length``, the number of received frames with a length that
   doesn't comply with the Ethernet specification.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx_missed``, the number of missed packets when receiving from the
   interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_rx_over``, the number of received frames per second that were
   dropped due to an hardware port receive buffer overflow.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_tx``, the number of errors per second detected when transmitting
   from the interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_tx_aborted``, the number of aborted frames per second when
   transmitting from the interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_tx_carrier``, the number of times per second the interface has
   lost its link connection to the switch.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_tx_fifo``, the number of transmitted frames per second dropped
   due to FIFO buffer overflows.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_tx_heartbeat``, the number of heartbeat errors per second.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_errors_tx_window``, the number of late collisions per second when
   transmitting from the interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_multicast``, the number of multicast packets per second per interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_octets_rx``, the number of octets (bytes) received per second by the
   interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_octets_tx``, the number of octets (bytes) transmitted per second by the
   interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_packets_rx``, the number of packets received per second by the
   interface.
 
-  dimensions:
+  Dimensions:
 
   - interface, the network interface name.
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``if_packets_tx``, the number of packets transmitted per second by the
   interface.
@@ -484,23 +613,27 @@ Process metrics
 
 * ``processes_count``, the number of processes in a given state.
 
-  dimensions:
+  Dimensions:
 
   - state, the state of the process (one of 'blocked', 'paging', 'running',
     'sleeping', 'stopped' or 'zombies').
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``processes_fork_rate``, the number of processes forked per second.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``contextswitch``, the number of context switches done by the operating system.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Swap metrics
 ^^^^^^^^^^^^
@@ -508,40 +641,50 @@ Swap metrics
 
 * ``swap_cached``, the amount of cached memory (in bytes) that is in the swap.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``swap_free``, the amount of free memory (in bytes) that is in the swap.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``swap_io_in``, the number of swap bytes written per second.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``swap_io_out``, the number of swap bytes read per second.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``swap_used``, the amount of used memory (in bytes) that is in the swap.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``swap_percent_used``, the amount of used memory (in percentages) that is in
   the swap.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Users metrics
 ^^^^^^^^^^^^^
@@ -549,9 +692,9 @@ Users metrics
 
 * ``logged_users``, the number of users currently logged in.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Miscellaneous
 ^^^^^^^^^^^^^
@@ -560,6 +703,6 @@ Miscellaneous
 * ``entropy``, the entropy on a system. Entropy is used to generate random numbers,
   which are used for encryption, authorization and similar tasks.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.

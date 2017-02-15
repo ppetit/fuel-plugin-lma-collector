@@ -2,6 +2,10 @@ Ceph metrics
 ^^^^^^^^^^^^
 .. _ceph_metrics:
 
+A collection of Cep metrics.
+
+.. Note: Ceph metrics are not available in StackLight 1.0 for MCP 0.5
+
 All Ceph metrics have a ``cluster`` dimension containing the name of the Ceph
 cluster (*ceph* by default).
 
@@ -136,14 +140,14 @@ Ceph checks
   on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
   check is not successful.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 * ``ceph_osd_check``, check the availability status of the Ceph OSD service
   on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
   check is not successful.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.

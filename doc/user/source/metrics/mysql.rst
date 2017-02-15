@@ -1,5 +1,5 @@
 MySQL metrics
--------------
+^^^^^^^^^^^^^
 .. _mysql_metrics:
 
 A collection of MySQL metrics.
@@ -10,10 +10,10 @@ Command metrics
 * ``mysql_commands``, the number of times per second a given statement has been
   executed.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
-  - statement, the ``statement`` dimension contains the name of the MySQL
+  - ``hostname``, the hostname the metric applies to.
+  - ``statement``, the ``statement`` dimension contains the name of the MySQL
     statement that applies to the metric applies.
     It can be one of the following values:
 
@@ -40,10 +40,10 @@ Handler metrics
 * ``mysql_handler``, the number of times per second a given handler has been
   executed.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
-  - handler, the ``handler`` dimension contains the name of the MySQL
+  - ``hostname``, the hostname the metric applies to.
+  - ``handler``, the ``handler`` dimension contains the name of the MySQL
     handler that applies to the metric.
     It can be one of the following values:
 
@@ -60,154 +60,186 @@ Handler metrics
     - ``update`` the requests that update a row in a table.
     - ``write`` the requests that insert a row in a table.
 
-Locks metrics
-^^^^^^^^^^^^^
+Lock metrics
+^^^^^^^^^^^^
 
 * ``mysql_locks_immediate``, the number of times per second the requests for
   table locks could be granted immediately.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_locks_waited``, the number of times per second the requests for
   table locks had to wait.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Network metrics
 ^^^^^^^^^^^^^^^
 
 * ``mysql_octets_rx``, the number of bytes per second received by the server.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_octets_tx``, the number of bytes per second sent by the server.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Thread metrics
 ^^^^^^^^^^^^^^
 
 * ``mysql_threads_cached``, the number of threads in the thread cache.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_threads_connected``, the number of currently open connections.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_threads_created``, the number of threads created per second to
   handle connections.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_threads_running``, the number of threads that are not sleeping.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Cluster metrics
 ^^^^^^^^^^^^^^^
 
-The following metrics are collected with statement 'SHOW STATUS'. For details,
+The following metrics are collected using 'SHOW STATUS'. For details,
 see the `Percona documentation <http://www.percona.com/doc/percona-xtradb-cluster/5.6/wsrep-status-index.html>`_.
 
 * ``mysql_cluster_connected``,  the value of the metric is ``1`` if the node
   is connected to the MySQL cluster or ``0`` if it is not connected.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_local_cert_failures``, the number of write sets that failed
   the certification test.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_local_commits``, the number of write sets committed on the
   node.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_local_recv_queue``, the number of write sets waiting to be
   applied.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_local_send_queue``, the number of write sets waiting to be
   sent.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_ready``, ``1`` when the node is ready to accept queries, if
   not, then ``0``.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_received``, the total number of write sets received from
   other nodes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_received_bytes``, the total size in bytes of write sets
   received from other nodes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_replicated``, the total number of write sets sent to other
   nodes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_replicated_bytes`` the total size in bytes of write sets sent
   to other nodes.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_size``, the current number of nodes in the cluster.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
+
+|
 
 * ``mysql_cluster_status``, ``1`` when the node is 'Primary', ``2`` if
   'Non-Primary', and ``3`` if 'Disconnected'.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 Slow queries
 ^^^^^^^^^^^^
@@ -227,6 +259,6 @@ MySQL checks
   on a node. The value of the metric is ``1`` if the check is successful or ``0`` if the
   check is not successful.
 
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.

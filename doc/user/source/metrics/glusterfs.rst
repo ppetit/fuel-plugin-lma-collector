@@ -1,7 +1,8 @@
 GlusterFS metrics
+^^^^^^^^^^^^^^^^^
 .. _glusterfs_metrics:
 
-A collection of GlusterFS related metrics.
+A collection of GlusterFS metrics.
 
 GlusterFS checks
 ^^^^^^^^^^^^^^^^^^^^
@@ -10,9 +11,9 @@ GlusterFS checks
 * ``glusterfs_check``, check the availability of the GlusterFS service on a node.
   The value of the metric is ``1`` if the check is successful or ``0`` if not successful.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
+  - ``hostname``, the hostname the metric applies to.
 
 GlusterFS metrics
 ^^^^^^^^^^^^^^^^^
@@ -25,96 +26,110 @@ the metric applies to.
 
 * ``glusterfs_inodes_free``, the number of free inodes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the GlusterFS volume.
+
+|
 
 * ``glusterfs_inodes_percent_free``, the percentage of free inodes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from..
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from..
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the GlusterFS volume.
+
+|
 
 * ``glusterfs_inodes_percent_used``, the percentage of used inodes.
   
-  dimensions:
+  Dimensions:
   
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the GlusterFS volume.
+
+|
 
 * ``glusterfs_inodes_used``,  the number of used inodes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the GlusterFS volume.
+
+|
 
 * ``glusterfs_peer_state``, the GlusterFS peer state where a value:
 
   - ``0`` represents ``down``.
   - ``1`` represents ``up``.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+
+|
 
 * ``glusterfs_peers_count``, the number of GlusterFS peers by state.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
-  - state, the state of the GlusterFS peer where a value:
+  - ``hostname``, the hostname the metric applies to.
+  - ``state``, the state of the GlusterFS peer  where ``0`` represents
+    ``down`` and ``1`` represents ``up``.
 
-    - ``0`` represents ``down``.
-    - ``1`` represents ``up``.
+|
 
 * ``glusterfs_peers_percent``, the percent of GlusterFS peers by state.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric applies to.
-  - state, the state of the GlusterFS peer.
+  - ``hostname``, the hostname the metric applies to.
+  - ``state``, the state of the GlusterFS peer where ``0`` represents
+    ``down`` and ``1`` represents ``up``.
 
-    where:
-
-    - state ``0`` represents ``down``.
-    - state ``1`` represents ``up``.
+|
 
 * ``glusterfs_space_free``, the amount of free space in bytes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the the GlusterFS volume.
+
+|
 
 * ``glusterfs_space_used``, the amount of used space in bytes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the the GlusterFS volume.  
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the the GlusterFS volume.  
+
+|
 
 * ``glusterfs_space_percent_free``, the percentage of free space in bytes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the GlusterFS volume.
+
+|
 
 * ``glusterfs_space_percent_used``, the percentage of used space in bytes.
   
-  dimensions:
+  Dimensions:
 
-  - hostname, the hostname the metric is collected from.
-  - peer, the hostname (or IP address) of the GlusterFS peer the metric applies to.
-  - volume, the name of the the GlusterFS volume.
+  - ``hostname``, the hostname the metric is collected from.
+  - ``peer``, the hostname (or IP address) of the GlusterFS peer the metric applies to.
+  - ``volume``, the name of the the GlusterFS volume.
