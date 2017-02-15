@@ -26,17 +26,17 @@ System metrics
 Nginx metrics
 +++++++++++++
 
-../include:: metrics/nginx.rst
+.. include:: metrics/nginx.rst
 
 NTP metrics
 +++++++++++
 
-../include:: metrics/ntp.rst
+.. include:: metrics/ntp.rst
 
 Keepalive metrics
 +++++++++++++++++
 
-../include:: metrics/keepalive.rst
+.. include:: metrics/keepalive.rst
 
 MySQL metrics
 +++++++++++++
